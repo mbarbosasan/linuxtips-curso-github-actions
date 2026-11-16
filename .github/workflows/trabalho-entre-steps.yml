@@ -1,0 +1,19 @@
+name: Primeiro Workflow Linuxtips
+
+on: workflow_dispatch
+
+jobs:
+  giropops:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Confere versão do Ubuntu
+        run: cat /etc/os-release
+
+      - name: Exibir uma mensagem
+        run: echo "Hello World!" > mensagem.txt
+
+      - name: Qualquer outra coisa
+        run: ls -lha
+
+      - name: Ler conteudo do arquivo
+        run: cat mensagem.txt
