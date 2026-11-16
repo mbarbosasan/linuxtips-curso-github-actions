@@ -18,3 +18,6 @@ jobs:
     steps:
       - name: Busca imagem docker
         run: docker pull ${{ inputs.name }}:${{ inputs.tag }}
+      
+      - name: Listar imagens
+        run: docker images
