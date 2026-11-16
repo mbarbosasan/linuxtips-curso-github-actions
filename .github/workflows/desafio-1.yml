@@ -17,4 +17,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Busca imagem docker
-        run: docker pull ${{ inputs.name }}/${{ inputs.tag }}
+        run: docker pull ${{ inputs.name }}:${{ inputs.tag }}
