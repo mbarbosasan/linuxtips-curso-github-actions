@@ -14,7 +14,7 @@ jobs:
       - name: Exibir uma mensagem
         run: echo "Hello World!" > /home/ubuntu/mensagem.txt
 
-      - uses: action/upload-artifact@v4
+      - uses: action/upload-artifact@v7
         with:
           name: strigus
           path: /home/ubuntu/mensagem.txt
@@ -22,7 +22,7 @@ jobs:
   job_2:
     runs-on: ubuntu-latest
     steps:
-      - uses: action/download-artifact@v4
+      - uses: action/download-artifact@v8
         with:
           name: strigus
           path: mensagem.txt
