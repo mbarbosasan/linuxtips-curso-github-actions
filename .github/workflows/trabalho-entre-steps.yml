@@ -1,9 +1,11 @@
-name: Primeiro Workflow Linuxtips
+name: Vendo arquivos compartilhados entre steps
 
-on: workflow_dispatch
+on: 
+  push:
+    branches: main
 
 jobs:
-  giropops:
+  entre-steps:
     runs-on: ubuntu-latest
     steps:
       - name: Confere versão do Ubuntu
