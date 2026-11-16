@@ -12,12 +12,12 @@ jobs:
         run: cat /etc/os-release
 
       - name: Exibir uma mensagem
-        run: echo "Hello World!" > /home/ubuntu/mensagem.txt
+        run: echo "Hello World!" > ${{ github.workspace }}/mensagem.txt
 
       - uses: actions/upload-artifact@v7
         with:
           name: strigus
-          path: /home/ubuntu/mensagem.txt
+          path: ${{ github.workspace }}/mensagem.txt
 
   job_2:
     runs-on: ubuntu-latest
