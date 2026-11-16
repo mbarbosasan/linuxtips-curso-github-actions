@@ -21,3 +21,9 @@ jobs:
       
       - name: Listar imagens
         run: docker images
+      
+      - name: Docker Scout
+        uses: docker/scout-action@v1
+        with:
+          command: cves
+          image: ${{ inputs.name }}:${{ inputs.tag}}
