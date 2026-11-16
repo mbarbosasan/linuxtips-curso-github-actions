@@ -18,6 +18,7 @@ jobs:
         with:
           name: strigus-upload
           path: ${{ github.workspace }}/mensagem.txt
+          retetion-days: 1
 
   job_2:
     runs-on: ubuntu-latest
