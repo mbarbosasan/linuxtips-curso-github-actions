@@ -1,0 +1,12 @@
+name: Criando nosso trigger para Schedule
+
+on:
+  schedule:
+    - cron: "10 19 * * 2"
+
+jobs:
+  execute-schedule:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Informa horário
+        run: echo "Schedule executado com sucesso, agora são $(date) UTC"
