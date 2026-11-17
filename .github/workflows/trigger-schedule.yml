@@ -2,11 +2,16 @@ name: Criando nosso trigger para Schedule
 
 on:
   schedule:
-    - cron: '10 23 * * 2'
+    - cron: '23 23 * * 2'
+    - cron: '*/5 * * * 5'
 
 jobs:
   execute-schedule:
     runs-on: ubuntu-latest
     steps: 
+      - name: Informa horário
+        if: github.event.schedule == '10 23 * * 2'
+        run: echo "Esse step rodou pois essa execução foi pelo horário agendado"
+
       - name: Informa horário
         run: echo "Schedule executado com sucesso, agora são $(date) UTC"
