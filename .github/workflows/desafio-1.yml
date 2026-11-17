@@ -33,6 +33,6 @@ jobs:
       - name: Scan com Docker Scout
         uses: docker/scout-action@v1
         with:
-          command: cves
+          command: quickview,cves,recommendations,sbom
           image: ${{ inputs.validaImagemDocker }}
           only-severities: critical,high
