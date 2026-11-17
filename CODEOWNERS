@@ -1,3 +1,5 @@
-/app/* @mbarbosasan
-/iac/* @mbarbosan
 * @mbarbosasan
+
+/app/* @mbarbosan
+/iac/* @mbarbosasan
+/iac/compliance/*
