@@ -2,7 +2,7 @@ name: Criando nosso trigger para Schedule
 
 on:
   schedule:
-    - cron: "10 19 * * 2"
+    - cron: "10 22 * * 2"
 
 jobs:
   execute-schedule:
