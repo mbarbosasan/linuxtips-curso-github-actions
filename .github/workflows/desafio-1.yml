@@ -3,19 +3,19 @@ name: Desafio 1 Github actions
 on:
   workflow_dispatch:
     inputs:
-      name:
-        description: Nome da imagem docker
-        required: true
-        type: string
-      tag:
-        description: Tag da imagem docker
-        required: true
+      validaImagemDocker:
+        description: Validação da imagem
+        required: false
+        default: 'nginx:latest'
         type: string
 
 jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: login DockerHub
         uses: docker/login-action@v4
         with: 
@@ -23,13 +23,16 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Busca imagem docker
-        run: docker pull ${{ inputs.name }}:${{ inputs.tag }}
+        run: docker pull ${{ validaImagemDocker }}
       
-      - name: Listar imagens
-        run: docker images
+      - name: Leitura da imagem
+        run: | 
+          IMAGE_NAME=$(echo "${{inputs.validaImagemDocker}}") | cut -d ':' -f 1
+          docker images | grep ${{ inputs.validaImagemDocker }}
       
-      - name: Docker Scout
+      - name: Scan com Docker Scout
         uses: docker/scout-action@v1
         with:
           command: cves
-          image: ${{ inputs.name }}:${{ inputs.tag}}
+          image: ${{ validaImagemDocker }}
+          only-severities: critical,high
