@@ -23,7 +23,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Busca imagem docker
-        run: docker pull ${{ validaImagemDocker }}
+        run: docker pull ${{ inputs.validaImagemDocker }}
       
       - name: Leitura da imagem
         run: | 
