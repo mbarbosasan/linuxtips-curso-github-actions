@@ -1,0 +1,14 @@
+name: Publicação condicional
+
+on:
+  workflow_run:
+    workflows: [Validação de ambiente]
+    types:
+      - completed
+
+jobs:
+  publicacao_condicional:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Realiza publicação
+        run: echo "Realizando publicação"
