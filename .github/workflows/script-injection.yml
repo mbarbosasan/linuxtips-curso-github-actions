@@ -10,9 +10,10 @@ jobs:
   valida-nome-do-pr:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: Check PR title
         run: |
-          title="${{ github.event.pull_request.title}"
+          title="${{ github.event.pull_request.title}}"
           if [[ $title =~ ^octocat]]; then
           echo "PR title starts with 'octocat'"
           exit 0
