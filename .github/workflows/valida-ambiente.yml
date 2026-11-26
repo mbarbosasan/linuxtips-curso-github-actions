@@ -1,0 +1,23 @@
+name: Validação de ambiente
+
+on:
+  workflow_dispatch:
+
+jobs:
+  valida-ambiente-stg:
+    if: github.ref_name == 'production'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Printa valor
+        run: |
+          echo "Estou no ambiente de ${{ vars.AMBIENTE }}"
+
+  valida-ambiente-prd:
+    if: github.ref_name == 'staging'
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Printa valor
+        run: |
+          echo "Estou no ambiente de ${{ vars.AMBIENTE }}"
