@@ -12,9 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Check PR title
+        env:
+          TITLE: ${{ github.event.pull_request.title}}
         run: |
-          title="${{ github.event.pull_request.title}}"
-          if [[ $title =~ ^octocat]]; then
+          if [[ $TITLE =~ ^octocat]]; then
             echo "PR title starts with 'octocat'"
             exit 0
           else
