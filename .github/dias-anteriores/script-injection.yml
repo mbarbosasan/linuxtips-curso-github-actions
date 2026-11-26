@@ -1,0 +1,24 @@
+name: Valida o nome do PR
+
+on:
+  pull_request:
+    types: [opened]
+    branches:
+      - 'main'
+
+jobs:
+  valida-nome-do-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check PR title
+        env:
+          TITLE: ${{ github.event.pull_request.title}}
+        run: |
+          if [[ "$TITLE" =~ ^octocat ]]; then
+            echo "PR title starts with 'octocat'"
+            exit 0
+          else
+            echo "PR title did not start with 'octocat'"
+            exit 1
+          fi

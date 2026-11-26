@@ -1,0 +1,7 @@
+name: Validação de ambiente
+
+on: workflow_dispatch
+
+jobs:
+  build_e_testes:
+    uses: ./.github/workflows/build-e-testes.yml

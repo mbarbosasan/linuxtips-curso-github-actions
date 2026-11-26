@@ -1,0 +1,19 @@
+name: Criando nosso trigger para Workflow Dispatch
+
+on:
+  workflow_dispatch:
+    inputs:
+      node_version:  
+        default: "20"
+        type: choice
+        options:
+          - "15"
+          - "17"
+          - "18"
+
+jobs:
+  install-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install npm
+        run: npm install ${{ inputs.node_version }}
